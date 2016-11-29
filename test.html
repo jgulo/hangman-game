@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hangman: The Office Edition</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script type="text/javascript">
+    </script>
+  </head>
+  <body>
+    
+   
+    <div class="container">
+
+      <div class = "">
+      <span id = "word">text</span>
+
+    <script type="text/javascript">
+
+      var list = ["michael", "dwight", "kevin"];
+      var roundChoice = list[Math.floor(Math.random()*list.length)];
+      var roundLocation = list.indexOf(roundChoice);
+
+      for (var i = 0;i<roundChoice.length;i++){
+        roundChoice = roundChoice.replace(roundChoice[i],"-");
+      }
+
+      var el = document.getElementById('word');
+      el.innerHTML = roundChoice;
+
+      document.onkeyup = function(event){
+      var userGuess = event.key;
+      var charValid = list[roundLocation].indexOf(userGuess);
+
+      if (charValid == -1){
+        console.log("Wrong")
+      } else {
+      roundChoice = roundChoice.replace(roundChoice[charValid],userGuess);
+      document.getElementById("word").innerHTML = roundChoice;
+        }        
+      }
+
+
+
+
+      
+
+  
+        
+    </script>
+
+
+
+
+
+
+   </div>
+
+    
+  </body>
+</html>
